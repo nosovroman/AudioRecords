@@ -119,7 +119,7 @@ class RecordPlayViewModel @Inject constructor(
         }
     }
 
-    private fun stopRecording() {
+    fun stopRecording() {
         recorder.stop()
         isRecordedState = false
         getRecords()

@@ -22,7 +22,7 @@ class MainActivity : ComponentActivity() {
         )
         setContent {
             VkRecorderTheme {
-                RecordPlayScreen()
+                RecordPlayScreen(context = applicationContext)
             }
         }
     }

@@ -1,4 +1,4 @@
-package com.example.vkrecorder.extensions
+package com.example.vkrecorder.domain.extensions
 
 import java.text.SimpleDateFormat
 import java.util.*

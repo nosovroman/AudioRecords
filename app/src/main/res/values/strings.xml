@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">VkRecorder</string>
+    <integer name="com_vk_sdk_AppId">51570755</integer>
 </resources>

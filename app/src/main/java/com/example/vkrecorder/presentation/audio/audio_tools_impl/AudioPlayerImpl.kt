@@ -1,13 +1,13 @@
-package com.example.vkrecorder.presentation.record_play.playback
+package com.example.vkrecorder.presentation.audio.audio_tools_impl
 
 import android.app.Application
-import android.content.Context
 import android.media.MediaPlayer
 import androidx.core.net.toUri
+import com.example.vkrecorder.domain.audio_tools.AudioPlayer
 import java.io.File
 import javax.inject.Inject
 
-class AndroidAudioPlayer @Inject constructor(
+class AudioPlayerImpl @Inject constructor(
     private val context: Application
 ): AudioPlayer {
 
@@ -20,22 +20,16 @@ class AndroidAudioPlayer @Inject constructor(
         }
     }
     override fun playFile(onComplete: () -> Unit) {
-        //MediaPlayer.create(context, file.toUri()).apply {
-        //    player = this
-            player?.start()
-        //}
-        player?.setOnCompletionListener {
-            onComplete()
-            player?.release()
-            player = null
+        player?.apply {
+            start()
+            setOnCompletionListener {
+                onComplete()
+                player?.release()
+                player = null
+            }
         }
     }
 
-//    override fun onComplete(onComplete: () -> Unit) {
-//        player?.setOnCompletionListener {
-//            onComplete()
-//        }
-//    }
     override fun pause() {
         player?.pause()
     }

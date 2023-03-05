@@ -1,14 +1,14 @@
-package com.example.vkrecorder.presentation.record_play.record
+package com.example.vkrecorder.presentation.audio.audio_tools_impl
 
 import android.app.Application
-import android.content.Context
 import android.media.MediaRecorder
 import android.os.Build
+import com.example.vkrecorder.domain.audio_tools.AudioRecorder
 import java.io.File
 import java.io.FileOutputStream
 import javax.inject.Inject
 
-class AndroidAudioRecorder @Inject constructor(
+class AudioRecorderImpl @Inject constructor(
     private val context: Application
 ): AudioRecorder {
 
@@ -35,8 +35,10 @@ class AndroidAudioRecorder @Inject constructor(
     }
 
     override fun stop() {
-        recorder?.stop()
-        recorder?.reset()
+        recorder?.apply {
+            stop()
+            reset()
+        }
         recorder = null
     }
 }

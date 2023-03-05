@@ -9,7 +9,6 @@ import retrofit2.Response
 import retrofit2.http.*
 
 interface ApiServiceVk {
-//    @Headers("X-Yandex-API-Key: be652545-e359-404a-8a62-704222ebe7b7")
     @GET("docs.getUploadServer?${END_URL}")
     suspend fun docsGetUploadServer(
         @Query("access_token") token: String,
